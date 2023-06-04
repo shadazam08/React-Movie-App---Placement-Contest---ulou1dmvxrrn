@@ -16,6 +16,18 @@ const MoviesList = (props) => {
 
 const MovieDetails = (props) => {
     const [movieDetails, setMovieDetails] = useState("");
+    useEffect (() => {
+        cont fetchMoviesDetails = async () => {
+            try{
+                const responce = await fetch( `https://api.themoviedb.org/3/movie/${movie.id}?api_key=[api_key]&language=en-us`
+);
+                const data = await responce.json();
+                setMovieDetails(data);
+            }catch(error){
+                console.log(error);
+            }
+        }
+    })
 
     return (
         <article className="movie-details">
